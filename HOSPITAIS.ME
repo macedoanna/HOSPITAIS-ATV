@@ -1,0 +1,43 @@
+# Gerador de Senhas para Hospital
+
+## Descrição
+Este projeto implementa um sistema de gerenciamento de senhas para um hospital. O sistema permite gerar senhas sequenciais, chamar a próxima senha para atendimento e manter um histórico das senhas chamadas.
+
+## Tecnologias Utilizadas
+- Linguagem: Java
+- Estruturas de Dados: Fila (Queue)
+
+## Como Usar
+1. Compile o código Java:
+   ```sh
+   javac GerenciadorSenhas.java
+   ```
+2. Execute o programa:
+   ```sh
+   java GerenciadorSenhas
+   ```
+
+## Funcionalidades
+- **Gerar Senha**: Adiciona uma nova senha à fila.
+- **Chamar Próximo**: Remove a primeira senha da fila e registra no histórico.
+- **Exibir Histórico**: Mostra todas as senhas chamadas até o momento.
+
+## Estrutura do Código
+- `Senha.java`: Representa uma senha única.
+- `FilaSenhas.java`: Gerencia a fila de senhas e o histórico.
+- `GerenciadorSenhas.java`: Interface principal para execução do sistema.
+
+## Exemplo de Execução
+```
+Senha gerada: 1
+Senha gerada: 2
+Chamando senha: 1
+Chamando senha: 2
+Nenhuma senha na fila.
+Histórico de chamadas:
+Senha: 1
+Senha: 2
+```
+
+## Autor
+Desenvolvedor
