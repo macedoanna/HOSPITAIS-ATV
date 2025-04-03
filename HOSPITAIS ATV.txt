@@ -1,0 +1,59 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+// Classe que representa uma senha
+class Senha {
+    private static int contador = 1;
+    private int numero;
+    
+    public Senha() {
+        this.numero = contador++;
+    }
+    
+    public int getNumero() {
+        return numero;
+    }
+}
+
+// Classe que gerencia a fila de senhas
+class FilaSenhas {
+    private Queue<Senha> fila = new LinkedList<>();
+    private Queue<Senha> historico = new LinkedList<>();
+    
+    public void gerarSenha() {
+        Senha senha = new Senha();
+        fila.add(senha);
+        System.out.println("Senha gerada: " + senha.getNumero());
+    }
+    
+    public void chamarProximo() {
+        if (!fila.isEmpty()) {
+            Senha senha = fila.poll();
+            historico.add(senha);
+            System.out.println("Chamando senha: " + senha.getNumero());
+        } else {
+            System.out.println("Nenhuma senha na fila.");
+        }
+    }
+    
+    public void exibirHistorico() {
+        System.out.println("Histórico de chamadas:");
+        for (Senha senha : historico) {
+            System.out.println("Senha: " + senha.getNumero());
+        }
+    }
+}
+
+// Classe principal para interação
+public class GerenciadorSenhas {
+    public static void main(String[] args) {
+        FilaSenhas filaSenhas = new FilaSenhas();
+        
+        filaSenhas.gerarSenha();
+        filaSenhas.gerarSenha();
+        filaSenhas.chamarProximo();
+        filaSenhas.chamarProximo();
+        filaSenhas.chamarProximo();
+        filaSenhas.exibirHistorico();
+    }
+}
